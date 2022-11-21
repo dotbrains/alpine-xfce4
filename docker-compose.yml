@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  alpine:
+    platform: linux/amd64
+    build:
+      context: .
+      args:
+        username: ${USERNAME}
+        password: ${PASSWORD}
+    image: nicholasadamou/alpine-xfce4:latest
+    container_name: alpine-xfce4
+    ports:
+      - "6080:6080"
+      - "5999:5999"
+      - "7776:22"
+    volumes:
+      - ./:/code
